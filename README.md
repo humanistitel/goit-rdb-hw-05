@@ -7,7 +7,8 @@
 ## Google Colab
 
 1. Відкрийте посилання Colab вище. За потреби збережіть копію notebook у потрібній папці Google Drive.
-2. Підключіть Python runtime і виконайте клітинку підготовки робочої папки перед основним кодом notebook:
+2. **Обов’язково:** у **Runtime → Change runtime type** виберіть **Python 3**, **CPU**, **Runtime Version = 2026.07** і натисніть **Save** (Python **3.12.13**). [Довідка Colab](https://research.google.com/colaboratory/runtime-version-faq.html).
+3. Підключіть runtime і виконайте клітинку підготовки робочої папки перед основним кодом notebook:
 
 ```python
 from pathlib import Path
@@ -24,8 +25,8 @@ os.chdir(repo_dir)
 print(Path.cwd())
 ```
 
-3. Виконайте **Runtime → Restart session and run all**, залишивши клітинку підготовки перед основним кодом. Перший запуск встановлює залежності та потребує мережі.
-4. Збережіть notebook із результатами. Якщо виконання перервано після створення PostgreSQL, запустіть останню клітинку cleanup.
+4. Виконайте **Runtime → Restart session and run all**, залишивши клітинку підготовки перед основним кодом. Перший запуск встановлює залежності та потребує мережі.
+5. Збережіть notebook із результатами. Якщо виконання перервано після створення PostgreSQL, запустіть останню клітинку cleanup.
 
 Пряме посилання на raw-файл також дозволяє завантажити `.ipynb` і відкрити його через **File → Upload notebook**; підготовка робочої папки залишається такою самою.
 
