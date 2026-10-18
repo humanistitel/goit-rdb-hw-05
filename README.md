@@ -6,33 +6,18 @@
 
 ## Google Colab
 
-1. Відкрийте посилання Colab вище. За потреби збережіть копію notebook у потрібній папці Google Drive.
-2. **Обов’язково:** у **Runtime → Change runtime type** виберіть **Python 3**, **CPU**, **Runtime Version = 2026.07** і натисніть **Save** (Python **3.12.13**). [Довідка Colab](https://research.google.com/colaboratory/runtime-version-faq.html).
-3. Підключіть runtime і виконайте клітинку підготовки робочої папки перед основним кодом notebook:
+1. Відкрийте посилання Colab вище у стандартному **Python 3 / CPU** runtime.
+2. Виконайте **Runtime → Run all**. Notebook сам підготує залежності, власний PostgreSQL 16 і потрібні дані. Додаткові клітинки або ручне копіювання файлів не потрібні.
 
-```python
-from pathlib import Path
-import os
-import subprocess
+Перший запуск потребує інтернету й часу на встановлення PostgreSQL та отримання даних. Сумісні встановлені бібліотеки зберігаються; фактичні версії відображаються під час виконання. Після завершення збережіть notebook із результатами. Якщо виконання перервано після запуску PostgreSQL, виконайте останню клітинку cleanup.
 
-repo_dir = Path("/content/goit-rdb-hw-05")
-if not repo_dir.exists():
-    subprocess.run([
-        "git", "clone", "--depth", "1",
-        "https://github.com/humanistitel/goit-rdb-hw-05.git", str(repo_dir)
-    ], check=True)
-os.chdir(repo_dir)
-print(Path.cwd())
-```
-
-4. Виконайте **Runtime → Restart session and run all**, залишивши клітинку підготовки перед основним кодом. Перший запуск встановлює залежності та потребує мережі.
-5. Збережіть notebook із результатами. Якщо виконання перервано після створення PostgreSQL, запустіть останню клітинку cleanup.
-
-Пряме посилання на raw-файл також дозволяє завантажити `.ipynb` і відкрити його через **File → Upload notebook**; підготовка робочої папки залишається такою самою.
+Файл `.ipynb` також можна завантажити та відкрити через **File → Upload notebook**.
 
 ## Запуск і залежності
 
-Усі SQL і runtime-код вбудовано в notebook; зовнішні генератори не потрібні. Перша клітинка перевіряє точні версії `pgserver==0.1.4`, `psycopg2-binary==2.9.12`, `SQLAlchemy==2.0.54`, `pandas==2.3.3`. Notebook запускає власний PostgreSQL 16 через локальний Unix socket; зовнішня база або credentials не потрібні. Остання клітинка виконує cleanup.
+Усі SQL і runtime-код вбудовано в notebook; зовнішні генератори не потрібні.
+
+У стандартному Colab з Python 3.13 PostgreSQL 16 встановлюється із системних пакетів Ubuntu й працює у власному кластері через локальний Unix socket. Зовнішня база або credentials не потрібні. Для локального запуску підтримується Python 3.9–3.12 з `pgserver==0.1.4`. Остання клітинка зупиняє власний PostgreSQL.
 
 ## Джерело й отримання даних
 
