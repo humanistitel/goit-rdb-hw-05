@@ -1,0 +1,29 @@
+# Python/runtime files
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.ipynb_checkpoints/
+.local/
+# Credentials and local configuration
+.env
+.env.*
+!.env.example
+*credentials*.json
+kaggle.json
+# Datasets are acquired from the official URLs in the notebook
+/data/
+/assets/data/
+*.parquet
+*.csv
+*.zip
+*.download
+# Generated run artifacts
+/work/
+/results/
+run-report.json
+execution-report.json
+notebook-preview.html
+# Operating-system metadata
+.DS_Store
+Thumbs.db
